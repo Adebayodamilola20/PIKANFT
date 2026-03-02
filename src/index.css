@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #121212;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+@layer components {
+  .pika-box {
+    @apply border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md overflow-hidden;
+  }
+}
