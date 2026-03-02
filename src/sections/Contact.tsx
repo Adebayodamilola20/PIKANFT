@@ -38,15 +38,15 @@ const Contact = () => {
                             <div className="space-y-4">
                                 <div className="flex items-center gap-3 text-sm text-white/70">
                                     <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Priority minting access
+                                    Follow pikanfts on X and turn on post notifications ⚡
                                 </div>
                                 <div className="flex items-center gap-3 text-sm text-white/70">
                                     <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Exclusive community roles
+                                    Quote a pika post and paste your link below
                                 </div>
                                 <div className="flex items-center gap-3 text-sm text-white/70">
                                     <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Early access to Pika-Arena
+                                    Tag 2 Poké-pals ⚡ and drop your link in the comments!
                                 </div>
                             </div>
                         </div>
@@ -67,19 +67,19 @@ const Contact = () => {
                             ) : (
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div>
-                                        <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-2">Twitter / X Handle</label>
+                                        <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-2">Twitter / X Link</label>
                                         <input
                                             type="text"
-                                            placeholder="@pika_master"
+                                            placeholder="https://x.com/pika_master/status/..."
                                             required
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary/50 transition-colors text-white placeholder:text-white/20"
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-2">Email Address</label>
+                                        <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-2">Eth wallet</label>
                                         <input
-                                            type="email"
-                                            placeholder="pika@cyber.net"
+                                            type="text"
+                                            placeholder="0x..."
                                             required
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary/50 transition-colors text-white placeholder:text-white/20"
                                         />

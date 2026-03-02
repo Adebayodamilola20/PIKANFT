@@ -46,7 +46,7 @@ const NFTGallery = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="group cursor-pointer relative border-4 border-yellow-400 rounded-sm bg-black/40 shadow-[8px_8px_0px_0px_rgba(255,224,0,1)] transition-all duration-75 hover:shadow-[2px_2px_0px_0px_#FFE000] hover:translate-x-1 hover:translate-y-1 overflow-hidden"
+                            className="group cursor-pointer relative border border-white/10 rounded-sm bg-black/40 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 overflow-hidden"
                         >
                             {/* Image Container */}
                             <div className="relative aspect-square overflow-hidden bg-white/5">

@@ -11,8 +11,8 @@ export const NAV_LINKS = [
 ];
 
 export const STATS = [
-    { label: "Total Asset Supply", value: "9,999", suffix: "UNITS" },
-    { label: "Market Floor", value: "0.45", suffix: "ETH" },
+    { label: "Total Asset Supply", value: "⚡ Limited pikas", suffix: "" },
+    { label: "Market Floor", value: "⚡️ Mint Details Soon", suffix: "" },
     { label: "Active Holders", value: "4.2K", suffix: "WALLETS" },
 ];
 
@@ -49,20 +49,20 @@ export const PIKA_DATA = [
 export const ROADMAP_STEPS = [
     {
         stage: "Phase 1",
-        title: "Genesis Minting",
-        description: "Initial distribution of 9,999 Pika assets to early adopters and contributors.",
+        title: "The Spark",
+        description: "Launch the Genesis collection, build and welcome our early community, gather feedback from holders, and improve the website & mint experience.",
         status: "Completed",
     },
     {
         stage: "Phase 2",
-        title: "Protocol Integration",
-        description: "Expansion of utility through the Pokedex interface and governance token distribution.",
+        title: "Grow Together",
+        description: "Community events & fun challenges, holder-only perks (digital access & surprises), behind-the-scenes development updates, and collaborations with small creators.",
         status: "In Progress",
     },
     {
         stage: "Phase 3",
-        title: "Ecosystem Expansion",
-        description: "Deployment of cross-chain compatibility and strategic partnerships for ecosystem growth.",
+        title: "Evolve Responsibly",
+        description: "Evaluate long-term sustainability, explore partnerships that align with the brand, continue improving utility based on community input, and provide transparent updates on progress & challenges.",
         status: "Future",
     },
 ];

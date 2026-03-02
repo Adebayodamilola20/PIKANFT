@@ -27,7 +27,7 @@ const Hero = () => {
                     className="mb-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest"
                 >
                     <Zap className="w-3 h-3 fill-primary" />
-                    Genesis Collection Phase 1
+                    PIKANFT: THE GENESIS SPARK ⚡
                 </motion.div>
 
                 <motion.h1
@@ -38,7 +38,7 @@ const Hero = () => {
                 >
                     PIKANFT:<br />
                     <span className="text-primary italic">THE GENESIS</span><br />
-                    SEED.
+                    SPARK ⚡
                 </motion.h1>
 
                 <motion.p
@@ -47,8 +47,9 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="max-w-xl text-lg text-white/60 mb-10 font-medium"
                 >
-                    Institutional-grade digital assets powered by a high-frequency electric protocol.
-                    Genesis distribution limited to 9,999 unique units.
+                    A tiny zap of magic.
+                    A big, bright adventure waiting to happen.
+                    Tap in, power up, and let the fun begin ✨💛
                 </motion.p>
 
                 <div className="flex flex-col sm:flex-row gap-4">

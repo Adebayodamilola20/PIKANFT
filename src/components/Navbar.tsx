@@ -21,14 +21,6 @@ const Navbar = () => {
                 ))}
             </div>
 
-            <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 bg-primary text-black font-bold rounded-full shadow-[0_4px_0_0_#EAB308] border-2 border-primary hover:bg-primary-dark transition-all flex items-center gap-2"
-            >
-                <span className="text-xs uppercase tracking-widest">Connect Wallet</span>
-                <div className="w-2 h-2 bg-black rounded-full animate-pulse" />
-            </motion.button>
         </nav>
     );
 };
