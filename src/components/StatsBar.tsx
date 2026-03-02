@@ -17,7 +17,7 @@ const StatsBar = () => {
                         >
                             <span className="text-white/40 text-xs font-mono uppercase tracking-[0.2em] mb-2">{stat.label}</span>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-4xl md:text-5xl font-black font-outfit text-white group-hover:text-primary transition-colors">
+                                <span className="text-2xl md:text-3xl font-black font-outfit text-white group-hover:text-primary transition-colors">
                                     {stat.value}
                                 </span>
                                 <span className="text-primary font-mono text-xs font-bold">{stat.suffix}</span>

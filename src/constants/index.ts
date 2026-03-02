@@ -13,7 +13,7 @@ export const NAV_LINKS = [
 export const STATS = [
     { label: "Total Asset Supply", value: "⚡ Limited pikas", suffix: "" },
     { label: "Market Floor", value: "⚡️ Mint Details Soon", suffix: "" },
-    { label: "Active Holders", value: "4.2K", suffix: "WALLETS" },
+    { label: "Join the Spark ⚡️", value: "Every Pika holder becomes part of something special. 💛", suffix: "" },
 ];
 
 export const PIKA_DATA = [

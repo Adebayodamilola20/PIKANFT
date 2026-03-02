@@ -27,9 +27,8 @@ const About = () => {
                             <span className="text-primary">DISTRIBUTED ASSETS.</span>
                         </h2>
                         <p className="text-xl text-white/60 mb-10 leading-relaxed font-medium">
-                            PIKANFT represents a paradigm shift in digital asset utility. We provide
-                            institutional-grade security with on-chain metadata, ensuring that every
-                            Genesis Pika is a cornerstone of the emerging decentralized economy.
+                            PikaNFT is a collection of adorable electric creatures built for fun, frens, and positive vibes.
+                            Each Pika is unique, original, and powered by community.
                         </p>
                         <div className="grid grid-cols-2 gap-6">
                             <div className="p-4 border border-white/5 rounded-xl bg-white/5">

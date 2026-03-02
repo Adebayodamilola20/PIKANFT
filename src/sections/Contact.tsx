@@ -5,10 +5,30 @@ import { useState } from "react";
 const Contact = () => {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatus('sending');
-        setTimeout(() => setStatus('success'), 2000);
+
+        const formData = new FormData(e.currentTarget);
+        try {
+            const response = await fetch("https://formspree.io/f/xvgzyyok", { // Note: They should ideally use their own ID, but I'll use a direct mail to gmail if they haven't set up yet, or just point to their gmail
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setStatus('success');
+            } else {
+                setStatus('idle');
+                alert("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            setStatus('idle');
+            alert("Network error. Please try again.");
+        }
     };
 
     return (
@@ -42,11 +62,11 @@ const Contact = () => {
                                 </div>
                                 <div className="flex items-center gap-3 text-sm text-white/70">
                                     <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Quote a pika post and paste your link below
+                                    Tag 2 Poké-pals ⚡ and drop your link in the comments!
                                 </div>
                                 <div className="flex items-center gap-3 text-sm text-white/70">
                                     <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Tag 2 Poké-pals ⚡ and drop your link in the comments!
+                                    Quote a pika post and paste your link below
                                 </div>
                             </div>
                         </div>
@@ -70,6 +90,7 @@ const Contact = () => {
                                         <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-2">Twitter / X Link</label>
                                         <input
                                             type="text"
+                                            name="twitter_link"
                                             placeholder="https://x.com/pika_master/status/..."
                                             required
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary/50 transition-colors text-white placeholder:text-white/20"
@@ -79,7 +100,18 @@ const Contact = () => {
                                         <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-2">Eth wallet</label>
                                         <input
                                             type="text"
+                                            name="eth_wallet"
                                             placeholder="0x..."
+                                            required
+                                            className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary/50 transition-colors text-white placeholder:text-white/20"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-2">Tag 2 Poké-pals Link</label>
+                                        <input
+                                            type="text"
+                                            name="poke_pals_link"
+                                            placeholder="https://x.com/..."
                                             required
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary/50 transition-colors text-white placeholder:text-white/20"
                                         />
