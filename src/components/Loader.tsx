@@ -61,16 +61,19 @@ const Loader = ({ onComplete }: LoaderProps) => {
             <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
             <div className="max-w-md w-full pika-box p-8 md:p-12 relative flex flex-col items-center">
-                {/* Top Icon */}
+                {/* Top Icon - Reverted to Cartoon Head */}
                 <motion.div
                     animate={{
-                        rotate: [0, 90, 180, 270, 360],
-                        scale: [1, 1.1, 1]
+                        y: [0, -10, 0]
                     }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                    className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-8 border border-primary/20 shadow-[0_0_20px_rgba(252,211,77,0.2)]"
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-24 h-24 mb-8 bg-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_30px_rgba(252,211,77,0.2)] p-2"
                 >
-                    <Cpu className="w-8 h-8" />
+                    <img
+                        src="https://img.icons8.com/color/512/pokemon.png"
+                        alt="Pika"
+                        className="w-full h-full object-contain"
+                    />
                 </motion.div>
 
                 {/* Status Text */}

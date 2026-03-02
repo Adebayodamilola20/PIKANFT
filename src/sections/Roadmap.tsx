@@ -13,7 +13,7 @@ const Roadmap = () => {
                         viewport={{ once: true }}
                         className="text-4xl md:text-6xl font-black font-outfit tracking-tighter italic mb-4"
                     >
-                        EVOLUTION <span className="text-primary">PROTOCOL.</span>
+                        PROTOCOL <span className="text-primary">ROADMAP.</span>
                     </motion.h2>
                     <div className="w-24 h-1 bg-primary mx-auto" />
                 </div>

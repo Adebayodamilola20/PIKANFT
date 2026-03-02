@@ -27,7 +27,7 @@ const Hero = () => {
                     className="mb-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest"
                 >
                     <Zap className="w-3 h-3 fill-primary" />
-                    Season 1: The Awakening Live
+                    Genesis Collection Phase 1
                 </motion.div>
 
                 <motion.h1
@@ -37,8 +37,8 @@ const Hero = () => {
                     className="text-6xl md:text-8xl lg:text-9xl font-extrabold font-outfit tracking-tighter leading-none mb-6 italic"
                 >
                     PIKANFT:<br />
-                    <span className="text-primary italic">CATCH THE</span><br />
-                    NEXT GEN.
+                    <span className="text-primary italic">THE GENESIS</span><br />
+                    SEED.
                 </motion.h1>
 
                 <motion.p
@@ -47,8 +47,8 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="max-w-xl text-lg text-white/60 mb-10 font-medium"
                 >
-                    Collect, evolve, and battle with the world's first cyber-enhanced Pikas.
-                    Limited edition 9,999 piece collection.
+                    Institutional-grade digital assets powered by a high-frequency electric protocol.
+                    Genesis distribution limited to 9,999 unique units.
                 </motion.p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -80,7 +80,7 @@ const Hero = () => {
                 <div className="relative w-full h-full animate-float">
                     <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse" />
                     <img
-                        src={mascot}
+                        src="https://img.icons8.com/color/512/pokemon.png"
                         alt="Pika"
                         className="relative z-10 w-full h-full object-contain"
                     />

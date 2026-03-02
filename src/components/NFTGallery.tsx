@@ -14,7 +14,7 @@ const NFTGallery = () => {
                             viewport={{ once: true }}
                             className="text-primary font-mono text-sm font-bold uppercase tracking-[0.3em] mb-4"
                         >
-                            The Factions
+                            Asset Classes
                         </motion.div>
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
@@ -23,8 +23,8 @@ const NFTGallery = () => {
                             viewport={{ once: true }}
                             className="text-4xl md:text-6xl font-black font-outfit tracking-tighter italic"
                         >
-                            SELECT YOUR<br />
-                            <span className="text-primary">FACTION.</span>
+                            GENESIS<br />
+                            <span className="text-primary">DISTRIBUTION.</span>
                         </motion.h2>
                     </div>
                     <motion.p
@@ -34,7 +34,7 @@ const NFTGallery = () => {
                         viewport={{ once: true }}
                         className="max-w-md text-white/50 text-right font-medium"
                     >
-                        Each faction possesses unique elemental powers and strategic advantages in the Pika-Arena.
+                        Each asset class provides distinct governance rights and protocol-level utility.
                     </motion.p>
                 </div>
 
@@ -52,7 +52,7 @@ const NFTGallery = () => {
                             {/* Image Container */}
                             <div className="relative aspect-square overflow-hidden bg-white/5">
                                 <img
-                                    src={pika.image}
+                                    src={pika.image as any}
                                     alt={pika.name}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
@@ -92,7 +92,7 @@ const NFTGallery = () => {
                                 <motion.button
                                     className="w-full mt-8 py-3 bg-white/5 hover:bg-primary hover:text-black border border-white/10 hover:border-primary transition-all rounded-xl font-bold text-sm uppercase tracking-widest"
                                 >
-                                    Inspect Stats
+                                    View Analysis
                                 </motion.button>
                             </div>
                         </motion.div>

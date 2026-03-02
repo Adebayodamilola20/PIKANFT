@@ -3,84 +3,84 @@ import nft2 from "../assets/nft2.png";
 import nft3 from "../assets/nft3.png";
 
 export const NAV_LINKS = [
-    { label: "Home", href: "#hero" },
-    { label: "About", href: "#about" },
-    { label: "Collection", href: "#gallery" },
-    { label: "Evolution", href: "#roadmap" },
-    { label: "Pokedex", href: "#pokedex" },
+    { label: "Overview", href: "#hero" },
+    { label: "Strategy", href: "#about" },
+    { label: "Genesis", href: "#gallery" },
+    { label: "Roadmap", href: "#roadmap" },
+    { label: "Protocol", href: "#pokedex" },
 ];
 
 export const STATS = [
-    { label: "Total Supply", value: "9,999", suffix: "PIKAS" },
-    { label: "Floor Price", value: "0.45", suffix: "ETH" },
-    { label: "Holders", value: "4.2K", suffix: "USERS" },
+    { label: "Total Asset Supply", value: "9,999", suffix: "UNITS" },
+    { label: "Market Floor", value: "0.45", suffix: "ETH" },
+    { label: "Active Holders", value: "4.2K", suffix: "WALLETS" },
 ];
 
 export const PIKA_DATA = [
     {
         id: 1,
-        name: "Cyber Pika #001",
-        rarity: "Legendary",
-        type: "Electric/Cyber",
-        stats: { attack: 95, defense: 80, speed: 120 },
-        image: nft1, // Placeholder, will use generated images later
-        description: "The first generation of cyber-enhanced Pikas. Built for high-speed data transmission.",
+        name: "Aegis Pika V1",
+        rarity: "Tier 1",
+        type: "Electric / High-Voltage",
+        stats: { velocity: 95, security: 80, integrity: 120 },
+        image: nft1,
+        description: "The primary asset class for the Pika ecosystem, designed for high-frequency data validation.",
     },
     {
         id: 2,
-        name: "Neon Pika #042",
-        rarity: "Epic",
-        type: "Electric/Neon",
-        stats: { attack: 85, defense: 70, speed: 110 },
+        name: "Lumina Pika V2",
+        rarity: "Tier 2",
+        type: "Electric / Optic",
+        stats: { velocity: 85, security: 70, integrity: 110 },
         image: nft2,
-        description: "Enhanced with neon lighting for stealth operations in the dark city streets.",
+        description: "Specialized for low-latency network nodes within the Neon protocol layers.",
     },
     {
         id: 3,
-        name: "Mecha Pika #133",
-        rarity: "Rare",
-        type: "Electric/Steel",
-        stats: { attack: 110, defense: 100, speed: 80 },
+        name: "Titan Pika V3",
+        rarity: "Tier 3",
+        type: "Electric / Reinforced",
+        stats: { velocity: 110, security: 100, integrity: 80 },
         image: nft3,
-        description: "A heavy-duty Pika armored with reinforced steel plating for frontline battles.",
+        description: "Engineered for maximum resilience during cross-chain liquidity events.",
     },
 ];
 
 export const ROADMAP_STEPS = [
     {
-        stage: "Stage 1",
-        title: "The Awakening",
-        description: "Initial release of 9,999 PikaNFTs. Community formation and initial drop.",
+        stage: "Phase 1",
+        title: "Genesis Minting",
+        description: "Initial distribution of 9,999 Pika assets to early adopters and contributors.",
         status: "Completed",
     },
     {
-        stage: "Stage 2",
-        title: "Evolution Protocol",
-        description: "Launch of the Pokedex and breeding mechanics. Evolve your PikaNFT into more powerful forms.",
+        stage: "Phase 2",
+        title: "Protocol Integration",
+        description: "Expansion of utility through the Pokedex interface and governance token distribution.",
         status: "In Progress",
     },
     {
-        stage: "Stage 3",
-        title: "Battle Arena",
-        description: "Competitive P2E battle arena launch. Cross-chain integration and global tournaments.",
+        stage: "Phase 3",
+        title: "Ecosystem Expansion",
+        description: "Deployment of cross-chain compatibility and strategic partnerships for ecosystem growth.",
         status: "Future",
     },
 ];
 
 export const ABOUT_CARDS = [
     {
-        title: "Digital Handheld Logic",
-        description: "Every Pika is a unique piece of digital history, living on the blockchain.",
-        icon: "Layout",
+        title: "On-Chain Probity",
+        description: "Every Pika asset is verified on the blockchain, ensuring absolute scarcity and ownership.",
+        icon: "Shield",
     },
     {
-        title: "Evolutionary Design",
-        description: "Our NFTs evolve based on community interaction and battle outcomes.",
+        title: "Adaptive Utility",
+        description: "Assets are designed to integrate with future protocol modules and governance structures.",
         icon: "Layers",
     },
     {
-        title: "Community Driven",
-        description: "The Pika-Community decides the future of the ecosystem through DAO voting.",
-        icon: "Users",
+        title: "Governance Driven",
+        description: "Strategic decisions are governed by the collective community through decentralized voting.",
+        icon: "Target",
     },
 ];

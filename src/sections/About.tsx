@@ -24,21 +24,21 @@ const About = () => {
                     >
                         <h2 className="text-4xl md:text-6xl font-black font-outfit tracking-tighter mb-8 italic">
                             A NEW ERA OF<br />
-                            <span className="text-primary">BLOCKCHAIN MONSTERS.</span>
+                            <span className="text-primary">DISTRIBUTED ASSETS.</span>
                         </h2>
                         <p className="text-xl text-white/60 mb-10 leading-relaxed font-medium">
-                            PIKANFT is more than just a collection. It's an evolving ecosystem where
-                            your digital assets have utility, personality, and power. Built by gamers
-                            for the next generation of Web3 pioneers.
+                            PIKANFT represents a paradigm shift in digital asset utility. We provide
+                            institutional-grade security with on-chain metadata, ensuring that every
+                            Genesis Pika is a cornerstone of the emerging decentralized economy.
                         </p>
                         <div className="grid grid-cols-2 gap-6">
                             <div className="p-4 border border-white/5 rounded-xl bg-white/5">
-                                <span className="block text-primary font-bold text-2xl">100%</span>
-                                <span className="text-white/40 text-xs uppercase tracking-wider">On-Chain Logic</span>
+                                <span className="block text-primary font-bold text-2xl">Tier-1</span>
+                                <span className="text-white/40 text-xs uppercase tracking-wider">Security Protocol</span>
                             </div>
                             <div className="p-4 border border-white/5 rounded-xl bg-white/5">
-                                <span className="block text-primary font-bold text-2xl">0%</span>
-                                <span className="text-white/40 text-xs uppercase tracking-wider">Gas Wars</span>
+                                <span className="block text-primary font-bold text-2xl">Finality</span>
+                                <span className="text-white/40 text-xs uppercase tracking-wider">Settlement Layer</span>
                             </div>
                         </div>
                     </motion.div>

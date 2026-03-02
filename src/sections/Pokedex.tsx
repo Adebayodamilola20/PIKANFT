@@ -14,7 +14,7 @@ const Pokedex = () => {
                         <Search className="w-6 h-6" />
                     </div>
                     <h2 className="text-4xl md:text-5xl font-black font-outfit tracking-tighter italic">
-                        GLOBAL <span className="text-primary truncate">POKEDEX.</span>
+                        GLOBAL <span className="text-primary truncate">PROTOCOL.</span>
                     </h2>
                 </div>
 
@@ -24,22 +24,22 @@ const Pokedex = () => {
                         <div className="pika-box p-8">
                             <div className="flex items-center gap-3 mb-6">
                                 <Info className="w-5 h-5 text-primary" />
-                                <h3 className="text-xs font-mono uppercase font-bold tracking-widest">Subject Analysis</h3>
+                                <h3 className="text-xs font-mono uppercase font-bold tracking-widest">Asset Verification</h3>
                             </div>
                             <p className="text-sm text-white/50 leading-relaxed mb-6">
                                 {pika.description}
                             </p>
                             <div className="space-y-4">
                                 <div className="flex justify-between items-center text-sm">
-                                    <span className="text-white/40 uppercase font-mono tracking-tighter">Species</span>
+                                    <span className="text-white/40 uppercase font-mono tracking-tighter">Genesis Class</span>
                                     <span className="font-bold text-primary italic">Cyber-Rodent</span>
                                 </div>
                                 <div className="flex justify-between items-center text-sm">
-                                    <span className="text-white/40 uppercase font-mono tracking-tighter">Habitat</span>
+                                    <span className="text-white/40 uppercase font-mono tracking-tighter">Layer Habitat</span>
                                     <span className="font-bold text-white italic">Neon District</span>
                                 </div>
                                 <div className="flex justify-between items-center text-sm">
-                                    <span className="text-white/40 uppercase font-mono tracking-tighter">Rarity</span>
+                                    <span className="text-white/40 uppercase font-mono tracking-tighter">Scarcity Tier</span>
                                     <span className="font-bold text-white italic">{pika.rarity}</span>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@ const Pokedex = () => {
                         <div className="pika-box p-8">
                             <div className="flex items-center gap-3 mb-6">
                                 <Target className="w-5 h-5 text-primary" />
-                                <h3 className="text-xs font-mono uppercase font-bold tracking-widest">Battle Metrics</h3>
+                                <h3 className="text-xs font-mono uppercase font-bold tracking-widest">Technical Metrics</h3>
                             </div>
                             <div className="space-y-6">
                                 {Object.entries(pika.stats).map(([label, value]) => (
@@ -80,7 +80,7 @@ const Pokedex = () => {
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                             className="relative z-10 w-full max-w-sm aspect-square"
                         >
-                            <img src={mascot} alt="Featured Pika" className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(252,211,77,0.3)]" />
+                            <img src="https://img.icons8.com/color/512/pokemon.png" alt="Featured Pika" className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(252,211,77,0.3)]" />
                             <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-48 h-8 bg-black/40 blur-xl rounded-full" />
                         </motion.div>
 
@@ -91,7 +91,7 @@ const Pokedex = () => {
                         </div>
 
                         <div className="absolute bottom-6 right-6 font-mono text-[10px] text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
-                            ID: {pika.id} // SCANNING...
+                            UID: 0x{pika.id} // VERIFIED
                         </div>
                     </div>
 
@@ -101,24 +101,24 @@ const Pokedex = () => {
                             <div>
                                 <div className="flex items-center gap-3 mb-6">
                                     <Shield className="w-5 h-5 text-primary" />
-                                    <h3 className="text-xs font-mono uppercase font-bold tracking-widest">Tactical Upgrade</h3>
+                                    <h3 className="text-xs font-mono uppercase font-bold tracking-widest">Protocol Extension</h3>
                                 </div>
                                 <div className="space-y-4">
                                     <div className="p-4 bg-white/5 rounded-xl border border-white/5 hover:border-primary/30 transition-colors cursor-pointer group">
                                         <Zap className="w-4 h-4 text-primary mb-2 group-hover:scale-125 transition-transform" />
-                                        <h4 className="text-sm font-bold mb-1">Static Burst</h4>
-                                        <p className="text-[10px] text-white/40">Increases speed by 20% for 3 turns.</p>
+                                        <h4 className="text-sm font-bold mb-1">Velocity Override</h4>
+                                        <p className="text-[10px] text-white/40">Increases throughput by 20% for 3 cycles.</p>
                                     </div>
                                     <div className="p-4 bg-white/5 rounded-xl border border-white/5 hover:border-primary/30 transition-colors cursor-pointer group">
                                         <Shield className="w-4 h-4 text-primary mb-2 group-hover:scale-125 transition-transform" />
-                                        <h4 className="text-sm font-bold mb-1">Ion Shield</h4>
-                                        <p className="text-[10px] text-white/40">Reduces incoming damage by 40%.</p>
+                                        <h4 className="text-sm font-bold mb-1">Security Shield</h4>
+                                        <p className="text-[10px] text-white/40">Reduces vulnerability by 40%.</p>
                                     </div>
                                 </div>
                             </div>
 
                             <button className="w-full mt-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-xs font-bold uppercase tracking-widest transition-all">
-                                Full Documentation
+                                Technical Paper
                             </button>
                         </div>
                     </div>
