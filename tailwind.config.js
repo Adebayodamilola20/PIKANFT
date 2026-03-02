@@ -18,6 +18,8 @@ export default {
                 sans: ['Inter', 'sans-serif'],
                 outfit: ['Outfit', 'sans-serif'],
                 mono: ['JetBrains Mono', 'monospace'],
+                retro: ['VT323', 'monospace'],
+                space: ['Space Mono', 'monospace'],
             },
             borderRadius: {
                 '2xl': '1.5rem',

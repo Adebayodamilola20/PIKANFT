@@ -46,8 +46,7 @@ const NFTGallery = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            whileHover={{ y: -10 }}
-                            className="pika-box group cursor-pointer relative"
+                            className="group cursor-pointer relative border-4 border-yellow-400 rounded-sm bg-black/40 shadow-[8px_8px_0px_0px_rgba(255,224,0,1)] transition-all duration-75 hover:shadow-[2px_2px_0px_0px_#FFE000] hover:translate-x-1 hover:translate-y-1 overflow-hidden"
                         >
                             {/* Image Container */}
                             <div className="relative aspect-square overflow-hidden bg-white/5">
@@ -72,25 +71,25 @@ const NFTGallery = () => {
                             <div className="p-8">
                                 <div className="flex justify-between items-start mb-4">
                                     <div>
-                                        <h3 className="text-2xl font-black font-outfit italic group-hover:text-primary transition-colors">{pika.name}</h3>
-                                        <span className="text-xs text-white/40 font-mono uppercase">{pika.type}</span>
+                                        <h3 className="text-3xl font-retro uppercase tracking-wider group-hover:text-primary transition-colors">{pika.name}</h3>
+                                        <span className="text-[10px] text-white/40 font-space uppercase tracking-widest">{pika.type}</span>
                                     </div>
                                     <div className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center">
                                         <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-3 gap-4 border-t border-white/5 pt-6">
+                                <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
                                     {Object.entries(pika.stats).map(([label, value]) => (
                                         <div key={label} className="flex flex-col">
-                                            <span className="text-[10px] text-white/40 uppercase font-mono">{label}</span>
-                                            <span className="text-sm font-bold text-white">{value}</span>
+                                            <span className="text-[10px] text-white/40 uppercase font-space">{label}</span>
+                                            <span className="text-sm font-bold text-white font-mono">{value}</span>
                                         </div>
                                     ))}
                                 </div>
 
                                 <motion.button
-                                    className="w-full mt-8 py-3 bg-white/5 hover:bg-primary hover:text-black border border-white/10 hover:border-primary transition-all rounded-xl font-bold text-sm uppercase tracking-widest"
+                                    className="w-full mt-8 py-3 bg-white/5 hover:bg-yellow-400 hover:text-black border border-white/10 hover:border-yellow-400 transition-all rounded-sm font-bold text-sm uppercase tracking-[0.2em] font-space"
                                 >
                                     View Analysis
                                 </motion.button>
