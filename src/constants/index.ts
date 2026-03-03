@@ -1,6 +1,9 @@
 import nft1 from "../assets/nft1.png";
 import nft2 from "../assets/nft2.png";
 import nft3 from "../assets/nft3.png";
+import pj1 from "@/assets/pj1.png";
+import pj2 from "@/assets/pj2.png";
+import pj3 from "@/assets/png3.png";
 
 export const NAV_LINKS = [
     { label: "Overview", href: "#hero" },
@@ -23,7 +26,7 @@ export const PIKA_DATA = [
         rarity: "Tier 1",
         type: "Electric / High-Voltage",
         stats: { velocity: 95, security: 80, integrity: 120 },
-        image: nft1,
+        image: pj1,
         description: "The primary asset class for the Pika ecosystem, designed for high-frequency data validation.",
     },
     {
@@ -32,7 +35,7 @@ export const PIKA_DATA = [
         rarity: "Tier 2",
         type: "Electric / Optic",
         stats: { velocity: 85, security: 70, integrity: 110 },
-        image: nft2,
+        image: pj2,
         description: "Specialized for low-latency network nodes within the Neon protocol layers.",
     },
     {
@@ -41,7 +44,7 @@ export const PIKA_DATA = [
         rarity: "Tier 3",
         type: "Electric / Reinforced",
         stats: { velocity: 110, security: 100, integrity: 80 },
-        image: nft3,
+        image: pj3,
         description: "Engineered for maximum resilience during cross-chain liquidity events.",
     },
 ];

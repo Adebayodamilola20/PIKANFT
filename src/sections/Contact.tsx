@@ -11,7 +11,7 @@ const Contact = () => {
 
         const formData = new FormData(e.currentTarget);
         try {
-            const response = await fetch("https://formspree.io/f/xvgzyyok", { // Note: They should ideally use their own ID, but I'll use a direct mail to gmail if they haven't set up yet, or just point to their gmail
+            const response = await fetch("https://formspree.io/f/meelbebz", {
                 method: "POST",
                 body: formData,
                 headers: {
