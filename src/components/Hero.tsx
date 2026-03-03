@@ -53,20 +53,14 @@ const Hero = () => {
                 </motion.p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                    <motion.button
+                    <motion.a
+                        href="#contact"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-10 py-4 bg-primary text-black font-black text-lg rounded-2xl shadow-[0_8px_0_0_#EAB308] flex items-center gap-3 active:translate-y-[4px] active:shadow-none transition-all"
+                        className="px-10 py-4 bg-primary text-black font-black text-lg rounded-2xl shadow-[0_8px_0_0_#EAB308] flex items-center gap-3 active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
                     >
                         START ADVENTURE
-                    </motion.button>
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-10 py-4 bg-transparent border-2 border-white/10 hover:border-white/20 text-white font-bold text-lg rounded-2xl backdrop-blur-sm transition-all"
-                    >
-                        VIEW COLLECTION
-                    </motion.button>
+                    </motion.a>
                 </div>
             </div>
 

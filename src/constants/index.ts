@@ -22,7 +22,7 @@ export const STATS = [
 export const PIKA_DATA = [
     {
         id: 1,
-        name: "Aegis Pika V1",
+        name: "Pika ",
         rarity: "Tier 1",
         type: "Electric / High-Voltage",
         stats: { velocity: 95, security: 80, integrity: 120 },
@@ -31,7 +31,7 @@ export const PIKA_DATA = [
     },
     {
         id: 2,
-        name: "Lumina Pika V2",
+        name: "Piku",
         rarity: "Tier 2",
         type: "Electric / Optic",
         stats: { velocity: 85, security: 70, integrity: 110 },
@@ -40,7 +40,7 @@ export const PIKA_DATA = [
     },
     {
         id: 3,
-        name: "Titan Pika V3",
+        name: " Piki",
         rarity: "Tier 3",
         type: "Electric / Reinforced",
         stats: { velocity: 110, security: 100, integrity: 80 },
