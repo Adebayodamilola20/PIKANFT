@@ -7,6 +7,11 @@ const Contact = () => {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
     const form = useRef<HTMLFormElement>(null);
 
+    // Initialize EmailJS once
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'HwF2Hf_fe6FweLFhd';
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_pyz2pjo';
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_8c6llcr';
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!form.current) return;
@@ -16,30 +21,38 @@ const Contact = () => {
         try {
             const formData = new FormData(form.current);
             const templateParams = {
-                name: formData.get('twitter_link'),
+                name: String(formData.get('twitter_link') || ''),
                 email: 'whitelist@pikanft.com',
-                message: `Wallet: ${formData.get('eth_wallet')}\nTag Link: ${formData.get('poke_pals_link')}`,
+                message: `Wallet: ${String(formData.get('eth_wallet') || '')}\nTag Link: ${String(formData.get('poke_pals_link') || '')}`,
                 title: 'Pika NFT Whitelist Entry',
                 time: new Date().toLocaleString(),
             };
 
+            console.log('--- EmailJS Debug Info ---');
+            console.log('Service ID:', SERVICE_ID);
+            console.log('Template ID:', TEMPLATE_ID);
+            console.log('Public Key:', PUBLIC_KEY);
+            console.log('Payload:', templateParams);
+
             const result = await emailjs.send(
-                import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_pyz2pjo',
-                import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_8c6llcr',
+                SERVICE_ID,
+                TEMPLATE_ID,
                 templateParams,
-                import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'HwF2Hf_fe6FweLFhd'
+                PUBLIC_KEY
             );
+
+            console.log('EmailJS Response:', result);
 
             if (result.text === 'OK') {
                 setStatus('success');
             } else {
                 setStatus('idle');
-                alert("Something went wrong. Please try again.");
+                alert(`Something went wrong: ${result.text}`);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error('EmailJS Error:', error);
             setStatus('idle');
-            alert("Failed to send message. Please check your EmailJS configuration.");
+            alert(`Failed to send message: ${error?.text || error?.message || 'Check your console'}`);
         }
     };
 
