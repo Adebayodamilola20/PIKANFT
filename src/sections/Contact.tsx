@@ -14,11 +14,20 @@ const Contact = () => {
         setStatus('sending');
 
         try {
-            const result = await emailjs.sendForm(
-                import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
-                import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID',
-                form.current,
-                import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
+            const formData = new FormData(form.current);
+            const templateParams = {
+                name: formData.get('twitter_link'),
+                email: 'whitelist@pikanft.com',
+                message: `Wallet: ${formData.get('eth_wallet')}\nTag Link: ${formData.get('poke_pals_link')}`,
+                title: 'Pika NFT Whitelist Entry',
+                time: new Date().toLocaleString(),
+            };
+
+            const result = await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_pyz2pjo',
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_8c6llcr',
+                templateParams,
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'HwF2Hf_fe6FweLFhd'
             );
 
             if (result.text === 'OK') {
