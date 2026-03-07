@@ -1,33 +1,36 @@
 import { motion } from "framer-motion";
 import { Send, CheckCircle2 } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+    const form = useRef<HTMLFormElement>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!form.current) return;
+
         setStatus('sending');
 
-        const formData = new FormData(e.currentTarget);
         try {
-            const response = await fetch("https://formspree.io/f/meelbebz", {
-                method: "POST",
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
+            const result = await emailjs.sendForm(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID',
+                form.current,
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
+            );
 
-            if (response.ok) {
+            if (result.text === 'OK') {
                 setStatus('success');
             } else {
                 setStatus('idle');
                 alert("Something went wrong. Please try again.");
             }
         } catch (error) {
+            console.error('EmailJS Error:', error);
             setStatus('idle');
-            alert("Network error. Please try again.");
+            alert("Failed to send message. Please check your EmailJS configuration.");
         }
     };
 
@@ -85,7 +88,7 @@ const Contact = () => {
                                     <p className="text-white/40">Your coordinates have been established.</p>
                                 </motion.div>
                             ) : (
-                                <form onSubmit={handleSubmit} className="space-y-6">
+                                <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                                     <div>
                                         <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-2">Twitter / X Link</label>
                                         <input
