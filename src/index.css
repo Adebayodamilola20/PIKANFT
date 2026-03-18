@@ -31,22 +31,3 @@ body {
     @apply border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md overflow-hidden;
   }
 }
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.spin-infinite {
-  animation: spin 2s linear infinite;
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
