@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, ArrowLeft, ExternalLink, CheckCircle2, AlertCircle } from "lucide-react";
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
 
 interface ApplicationModalProps {
     isOpen: boolean;
@@ -108,36 +107,30 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
             // Clean username
             const cleanUsername = xUsername.replace('@', '').trim();
             
-            // EmailJS configuration
-            const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-            const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-            const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+            // Using custom Netlify Function - Unlimited submissions
+            const response = await fetch("/.netlify/functions/submit-application", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    xUsername: `@${cleanUsername}`,
+                    xProfile: `https://x.com/${cleanUsername}`,
+                    walletAddress: walletAddress,
+                    tasksCompleted: 'Follow @pikajpegs, Tag 2 friends, Quote tweet with "pika"',
+                    submissionTime: new Date().toLocaleString(),
+                }),
+            });
 
-            if (!PUBLIC_KEY || !SERVICE_ID || !TEMPLATE_ID) {
-                throw new Error("Email service not configured. Please contact support.");
-            }
+            const result = await response.json();
 
-            const templateParams = {
-                to_name: "Pika Team",
-                from_name: `@${cleanUsername}`,
-                x_username: `@${cleanUsername}`,
-                wallet_address: walletAddress,
-                x_profile_link: `https://x.com/${cleanUsername}`,
-                submission_time: new Date().toLocaleString(),
-                message: `New whitelist application from @${cleanUsername}\n\nWallet: ${walletAddress}\n\nTasks Completed:\n✓ Follow @pikajpegs\n✓ Tag 2 friends\n✓ Quote tweet\n\nPlease verify:\n1. User follows @pikajpegs\n2. User tagged friends in comments\n3. User quoted the pinned post with "pika"\n\nX Profile: https://x.com/${cleanUsername}`,
-            };
-
-            const result = await emailjs.send(
-                SERVICE_ID,
-                TEMPLATE_ID,
-                templateParams,
-                PUBLIC_KEY
-            );
-
-            if (result.text === 'OK') {
+            if (response.ok && result.success) {
                 setStep(4);
+            } else if (response.status === 429 || result.limitReached) {
+                // Daily limit reached
+                setError("Daily submission limit reached. Please try again tomorrow! 🕐");
             } else {
-                throw new Error("Failed to submit application");
+                throw new Error(result.error || "Failed to submit application");
             }
         } catch (err: any) {
             console.error('Submission error:', err);
