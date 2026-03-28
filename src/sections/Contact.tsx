@@ -1,161 +1,102 @@
 import { motion } from "framer-motion";
-import { Send, CheckCircle2 } from "lucide-react";
-import { useState, useRef } from "react";
-import emailjs from '@emailjs/browser';
+import { Twitter, MessageCircle, Send } from "lucide-react";
 
 const Contact = () => {
-    const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
-    const form = useRef<HTMLFormElement>(null);
-
-    // Initialize EmailJS once
-    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'HwF2Hf_fe6FweLFhd';
-    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_pyz2pjo';
-    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_8c6llcr';
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if (!form.current) return;
-
-        setStatus('sending');
-
-        try {
-            const formData = new FormData(form.current);
-            const templateParams = {
-                name: String(formData.get('twitter_link') || ''),
-                email: 'whitelist@pikanft.com',
-                message: `Wallet: ${String(formData.get('eth_wallet') || '')}\nTag Link: ${String(formData.get('poke_pals_link') || '')}`,
-                title: 'Pika NFT Whitelist Entry',
-                time: new Date().toLocaleString(),
-            };
-
-            console.log('--- EmailJS Debug Info ---');
-            console.log('Service ID:', SERVICE_ID);
-            console.log('Template ID:', TEMPLATE_ID);
-            console.log('Public Key:', PUBLIC_KEY);
-            console.log('Payload:', templateParams);
-
-            const result = await emailjs.send(
-                SERVICE_ID,
-                TEMPLATE_ID,
-                templateParams,
-                PUBLIC_KEY
-            );
-
-            console.log('EmailJS Response:', result);
-
-            if (result.text === 'OK') {
-                setStatus('success');
-            } else {
-                setStatus('idle');
-                alert(`Something went wrong: ${result.text}`);
-            }
-        } catch (error: any) {
-            console.error('EmailJS Error:', error);
-            setStatus('idle');
-            alert(`Failed to send message: ${error?.text || error?.message || 'Check your console'}`);
-        }
-    };
-
     return (
-        <section id="contact" className="py-24 relative overflow-hidden">
-            <div className="container mx-auto px-6">
-                <div className="max-w-4xl mx-auto pika-box p-8 md:p-16 relative">
-                    <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-white/20 uppercase tracking-widest">
-                        Transmission Protocol v2.4
-                    </div>
+        <section id="contact" className="py-32 relative overflow-hidden">
+            {/* Background */}
+            <div className="absolute inset-0">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px]" />
+            </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <motion.h2
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.5 }}
-                                viewport={{ once: true }}
-                                className="text-4xl md:text-5xl font-black font-outfit tracking-tighter italic mb-6"
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="max-w-4xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl md:text-6xl font-black font-outfit tracking-tight mb-6">
+                            <span className="bg-gradient-to-r from-primary via-primary-light to-secondary bg-clip-text text-transparent">
+                                Join The
+                            </span>
+                            <br />
+                            <span className="text-white">Community</span>
+                        </h2>
+                        
+                        <p className="text-xl text-white/70 max-w-2xl mx-auto mb-12">
+                            Follow us on X to stay updated on mint details, community events, and exclusive drops.
+                        </p>
+
+                        {/* CTA Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                            <a
+                                href="https://x.com/pikajpegs"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group px-10 py-5 bg-gradient-to-r from-[#1DA1F2] to-[#0d8bd9] text-white font-bold text-lg hover:scale-105 hover:shadow-[0_0_40px_rgba(29,161,242,0.5)] transition-all flex items-center gap-3"
                             >
-                                JOIN THE<br />
-                                <span className="text-primary">WHITELIST.</span>
-                            </motion.h2>
-                            <p className="text-white/50 mb-8 font-medium">
-                                Establish your coordinates. Be the first to know when the next generation of Cyber-Pikas are ready for deployment.
-                            </p>
+                                <Twitter className="w-6 h-6" />
+                                Follow @pikajpegs
+                            </a>
+                            
+                            <a
+                                href="#hero"
+                                className="px-10 py-5 border-2 border-primary/50 text-white font-bold text-lg backdrop-blur-xl hover:bg-primary/10 hover:border-primary transition-all flex items-center gap-3"
+                            >
+                                <Send className="w-5 h-5" />
+                                Apply for Whitelist
+                            </a>
+                        </div>
+                    </motion.div>
 
-                            <div className="space-y-4">
-                                <div className="flex items-center gap-3 text-sm text-white/70">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Follow pikanfts on X and turn on post notifications ⚡
+                    {/* Info Cards */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        viewport={{ once: true }}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                    >
+                        <div className="pika-box p-8">
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-12 h-12 bg-gradient-to-br from-primary to-yellow-500 flex items-center justify-center">
+                                    <Twitter className="w-6 h-6 text-black" />
                                 </div>
-                                <div className="flex items-center gap-3 text-sm text-white/70">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Tag 2 Poké-pals ⚡ and drop your link in the comments!
-                                </div>
-                                <div className="flex items-center gap-3 text-sm text-white/70">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Quote a pika post and paste your link below
-                                </div>
+                                <h3 className="text-xl font-bold">Follow on X</h3>
                             </div>
+                            <p className="text-white/60 text-sm leading-relaxed">
+                                Stay updated with the latest news, mint announcements, and community events. Turn on notifications to never miss a drop!
+                            </p>
                         </div>
 
-                        <div>
-                            {status === 'success' ? (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    className="flex flex-col items-center justify-center text-center py-12"
-                                >
-                                    <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
-                                        <CheckCircle2 className="w-10 h-10" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold mb-2">ACCESS GRANTED</h3>
-                                    <p className="text-white/40">Your coordinates have been established.</p>
-                                </motion.div>
-                            ) : (
-                                <form ref={form} onSubmit={handleSubmit} className="space-y-6">
-                                    <div>
-                                        <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-2">Twitter / X Link</label>
-                                        <input
-                                            type="text"
-                                            name="twitter_link"
-                                            placeholder="https://x.com/pika_master/status/..."
-                                            required
-                                            className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary/50 transition-colors text-white placeholder:text-white/20"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-2">Eth wallet</label>
-                                        <input
-                                            type="text"
-                                            name="eth_wallet"
-                                            placeholder="0x..."
-                                            required
-                                            className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary/50 transition-colors text-white placeholder:text-white/20"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-2">Tag 2 Poké-pals Link</label>
-                                        <input
-                                            type="text"
-                                            name="poke_pals_link"
-                                            placeholder="https://x.com/..."
-                                            required
-                                            className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary/50 transition-colors text-white placeholder:text-white/20"
-                                        />
-                                    </div>
-                                    <button
-                                        disabled={status === 'sending'}
-                                        className="w-full py-4 bg-primary text-black font-black text-sm uppercase tracking-widest rounded-xl shadow-[0_4px_0_0_#EAB308] hover:bg-primary-dark transition-all flex items-center justify-center gap-3 disabled:opacity-50"
-                                    >
-                                        {status === 'sending' ? 'ESTABLISHING...' : (
-                                            <>
-                                                <Send className="w-4 h-4" />
-                                                SUBMIT DATA
-                                            </>
-                                        )}
-                                    </button>
-                                </form>
-                            )}
+                        <div className="pika-box p-8">
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                                    <MessageCircle className="w-6 h-6 text-white" />
+                                </div>
+                                <h3 className="text-xl font-bold">Join Discord</h3>
+                            </div>
+                            <p className="text-white/60 text-sm leading-relaxed">
+                                Connect with fellow Pika holders, participate in events, and help shape the future of the project.
+                            </p>
                         </div>
-                    </div>
+                    </motion.div>
+
+                    {/* Note */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        viewport={{ once: true }}
+                        className="mt-12 text-center"
+                    >
+                        <p className="text-white/40 text-sm">
+                            Click "APPLY NOW" at the top to join the whitelist and secure your spot
+                        </p>
+                    </motion.div>
                 </div>
             </div>
         </section>

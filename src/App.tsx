@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import StatsBar from "./components/StatsBar";
 import About from "./sections/About";
 import NFTGallery from "./components/NFTGallery";
 import Roadmap from "./sections/Roadmap";
@@ -24,7 +23,6 @@ function App() {
                     <Layout key="main">
                         <Navbar />
                         <Hero />
-                        <StatsBar />
                         <About />
                         <NFTGallery />
                         <Roadmap />
