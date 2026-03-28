@@ -9,29 +9,26 @@ import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
 import Layout from "./components/Layout";
 import Loader from "./components/Loader";
-import { AnimatePresence } from "framer-motion";
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
 
+    if (isLoading) {
+        return <Loader onComplete={() => setIsLoading(false)} />;
+    }
+
     return (
         <div className="bg-background min-h-screen">
-            <AnimatePresence mode="wait">
-                {isLoading ? (
-                    <Loader key="loader" onComplete={() => setIsLoading(false)} />
-                ) : (
-                    <Layout key="main">
-                        <Navbar />
-                        <Hero />
-                        <About />
-                        <NFTGallery />
-                        <Roadmap />
-                        <Pokedex />
-                        <Contact />
-                        <Footer />
-                    </Layout>
-                )}
-            </AnimatePresence>
+            <Layout>
+                <Navbar />
+                <Hero />
+                <About />
+                <NFTGallery />
+                <Roadmap />
+                <Pokedex />
+                <Contact />
+                <Footer />
+            </Layout>
         </div>
     );
 }
