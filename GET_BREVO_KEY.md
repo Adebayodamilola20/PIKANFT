@@ -1,48 +1,44 @@
-# Get Brevo API Key (Free - 300 emails/day = 9000/month!)
+# Vercel Setup Instructions
 
-Brevo (formerly Sendinblue) allows sending to ANY email address without domain verification!
+Your app now uses Vercel Serverless Functions for unlimited form submissions!
 
-## Quick Setup (5 minutes):
+## Setup Steps:
 
-### 1. Sign Up for Brevo
-1. Go to https://www.brevo.com
-2. Click "Sign up free"
-3. Enter your email (lawalgiyath200716@gmail.com)
-4. Verify your email
-5. Complete the quick onboarding
+### 1. You already have the Brevo API Key
+✅ The API key is stored in your local `.env.local` file
 
-### 2. Get API Key
-1. Go to https://app.brevo.com/settings/keys/api
-2. Click "Generate a new API key"
-3. Name it: "Pika NFT Whitelist"
-4. Copy the API key (starts with `xkeysib-...`)
+### 2. Tell the person who owns the Vercel account to add the environment variable:
 
-### 3. Add to Netlify
-1. Go to your Netlify dashboard
-2. Select your site
-3. Site settings > Environment variables
-4. Add new variable:
-   - Key: `BREVO_API_KEY`
-   - Value: [paste your Brevo API key]
-5. Save and redeploy
+**In Vercel Dashboard:**
+1. Go to the project settings
+2. Navigate to: Settings > Environment Variables
+3. Add new variable:
+   - Name: `BREVO_API_KEY`
+   - Value: [Get from your local .env.local file - starts with xkeysib-]
+   - Environment: Production, Preview, Development (select all)
+4. Save
+5. Redeploy the site
 
-### 4. Test It
-Run the test script:
+### 3. Push your code
 ```bash
-node test-brevo.js
+git add .
+git commit -m "Convert to Vercel serverless functions"
+git push origin main
 ```
 
-## Why Brevo?
+Vercel will auto-deploy and the form will work!
+
+## How it works:
+- Form submissions go to `/api/submit-application`
+- Vercel Serverless Function sends email via Brevo API
+- Emails arrive at: Elelukryptika@gmail.com
+- Rate limited to 300 submissions/day
+- Automatically resets daily
+
+## Benefits:
 ✅ 300 emails/day (9000/month) - FREE
-✅ Send to ANY email address (no domain verification needed!)
+✅ Sends to ANY email address
+✅ Auto-deploys on git push
+✅ Built-in rate limiting
 ✅ No credit card required
-✅ Professional email templates
-✅ Delivery tracking
-✅ Works immediately after signup
 
-## Alternative Options:
-- **SMTP2GO**: 1000 emails/month free (requires domain verification)
-- **Mailgun**: 5000 emails/month free (requires domain verification)
-- **SendGrid**: 100 emails/day free (requires domain verification)
-
-Brevo is the BEST option because it doesn't require domain verification!

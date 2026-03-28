@@ -3,13 +3,20 @@ let submissionCount = 0;
 let lastResetDate = new Date().toDateString();
 const DAILY_LIMIT = 300;
 
-exports.handler = async (event, context) => {
+export default async function handler(req, res) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight request
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   // Only allow POST requests
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: 'Method not allowed' })
-    };
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
@@ -22,22 +29,14 @@ exports.handler = async (event, context) => {
 
     // Check if daily limit reached
     if (submissionCount >= DAILY_LIMIT) {
-      return {
-        statusCode: 429,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ 
-          success: false,
-          error: 'Daily submission limit reached. Please try again tomorrow.',
-          limitReached: true
-        })
-      };
+      return res.status(429).json({ 
+        success: false,
+        error: 'Daily submission limit reached. Please try again tomorrow.',
+        limitReached: true
+      });
     }
 
-    const data = JSON.parse(event.body);
-    const { xUsername, walletAddress, tasksCompleted, submissionTime } = data;
+    const { xUsername, walletAddress, tasksCompleted, submissionTime } = req.body;
 
     // Using Brevo (formerly Sendinblue) - Free tier: 300 emails/day
     const emailData = {
@@ -101,33 +100,18 @@ exports.handler = async (event, context) => {
     // Increment counter after successful send
     submissionCount++;
 
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ 
-        success: true, 
-        message: 'Application submitted successfully',
-        submissionsToday: submissionCount,
-        remainingToday: DAILY_LIMIT - submissionCount
-      })
-    };
+    return res.status(200).json({ 
+      success: true, 
+      message: 'Application submitted successfully',
+      submissionsToday: submissionCount,
+      remainingToday: DAILY_LIMIT - submissionCount
+    });
 
   } catch (error) {
     console.error('Error:', error);
-    return {
-      statusCode: 500,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ 
-        success: false, 
-        error: 'Failed to submit application' 
-      })
-    };
+    return res.status(500).json({ 
+      success: false, 
+      error: 'Failed to submit application' 
+    });
   }
-};
+}

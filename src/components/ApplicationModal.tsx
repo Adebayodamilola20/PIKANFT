@@ -107,8 +107,8 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
             // Clean username
             const cleanUsername = xUsername.replace('@', '').trim();
             
-            // Using custom Netlify Function - Unlimited submissions
-            const response = await fetch("/.netlify/functions/submit-application", {
+            // Using Vercel Serverless Function
+            const response = await fetch("/api/submit-application", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
